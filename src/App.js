@@ -80,6 +80,7 @@ class App extends React.Component {
                             amount={this.state.amount}
                             getTotalBalance={this.getTotalBalance}
                             red={18}
+                            test={13}
                         />
                     </div>
                 </main>
