@@ -7,14 +7,11 @@ import Operation from "./components/Operation/Operation";
 class App extends React.Component {
 
     state = {
-        TotalBalance: 0,
-        resultIncome:0,
-        resultExpenses:0,
      transactions: [],
      description: "",
      amount: ""
     };
-
+ 
     addTransaction = add =>  {
         const transactions = [...this.state.transactions];
 
@@ -46,15 +43,17 @@ class App extends React.Component {
 
         const totalBalance = resultIncome - resultExpenses;
 
-        this.setState( {
+        return {
             resultExpenses,
             resultIncome,
             totalBalance
-        });
+        }
     }
 
 
     render() {
+        const total = this.getTotalBalance()
+
         return (
             <React.Fragment>
                 <header>
@@ -65,9 +64,16 @@ class App extends React.Component {
                 <main>
                     <div className="container">
                         <Total
+<<<<<<< HEAD
                             TotalBalance = {this.TotalBalance}
                             resultIncome = {this.state.resultIncome}
                             resultExpenses = {this.state.resultExpenses}
+=======
+                            balance={this.state.balance}
+                            totalBalance = {total.totalBalance}
+                            resultIncome = {total.resultIncome}
+                            resultExpenses = {total.resultExpenses}
+>>>>>>> refs/remotes/origin/master
                         />
                         <History
                             transactions={this.state.transactions}
