@@ -1,6 +1,6 @@
 import React from "react";
 
-const Operation = ({addDescription , addAmount , addTransaction , description , amount , getTotalBalance}) => (
+const Operation = ({addDescription , addAmount , addTransaction , description , amount}) => (
     <section className="operation">
         <h3>Новая операция</h3>
         <form id="form">
@@ -25,7 +25,7 @@ const Operation = ({addDescription , addAmount , addTransaction , description , 
                 <button
                     type="button"
                     className="operation__btn operation__btn-subtract"
-                    onClick={() => {addTransaction(false); getTotalBalance();} }
+                    onClick={() => addTransaction(false) }
                 >РАСХОД</button>
                 <button
                     type="button"

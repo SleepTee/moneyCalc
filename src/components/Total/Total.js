@@ -1,10 +1,10 @@
 import React from "react";
 
-const Total = ({TotalBalance , resultExpenses , resultIncome}) => (
+const Total = ({totalBalance , resultExpenses , resultIncome}) => (
     <section className="total">
         <header className="total__header">
             <h3>Баланс</h3>
-            <p className="total__balance">{TotalBalance}  ₽</p>
+            <p className="total__balance">{totalBalance}  ₽</p>
         </header>
         <div className="total__main">
             <div className="total__main-item total__income">
