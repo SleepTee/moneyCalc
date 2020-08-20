@@ -78,6 +78,7 @@ class App extends React.Component {
                             description={this.state.description}
                             amount={this.state.amount}
                             getTotalBalance={this.getTotalBalance}
+                            test={13}
                         />
                     </div>
                 </main>
