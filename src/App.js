@@ -1,3 +1,4 @@
+123
 import React from 'react';
 import Total from "./components/Total/Total";
 import History from "./components/History/History";
@@ -78,6 +79,7 @@ class App extends React.Component {
                             description={this.state.description}
                             amount={this.state.amount}
                             getTotalBalance={this.getTotalBalance}
+                            red={18}
                         />
                     </div>
                 </main>
