@@ -7,6 +7,9 @@ import Operation from "./components/Operation/Operation";
 class App extends React.Component {
 
     state = {
+        TotalBalance: 0,
+        resultIncome:0,
+        resultExpenses:0,
      transactions: [],
      description: "",
      amount: ""
@@ -32,8 +35,24 @@ class App extends React.Component {
         this.setState({description: e.target.value});
     };
     addAmount = e => {
-        this.setState({amount:e.target.value})
+        this.setState({amount:e.target.value});
     };
+    getIncome = () => this.state.transactions.reduce((acc,item) =>item.add ? Number.parseInt(item.amount) + acc: acc, 0);
+    getExpenses = () => this.state.transactions.reduce((acc,item) =>!item.add ? Number.parseInt(item.amount) + acc: acc, 0);
+
+    getTotalBalance = () => {
+        const resultIncome = this.getIncome();
+        const resultExpenses = this.getExpenses();
+
+        const totalBalance = resultIncome - resultExpenses;
+
+        this.setState( {
+            resultExpenses,
+            resultIncome,
+            totalBalance
+        });
+    }
+
 
     render() {
         return (
@@ -45,7 +64,12 @@ class App extends React.Component {
 
                 <main>
                     <div className="container">
-                        <Total />
+                        <Total
+                            balance={this.state.balance}
+                            TotalBalance = {this.TotalBalance}
+                            resultIncome = {this.state.resultIncome}
+                            resultExpenses = {this.state.resultExpenses}
+                        />
                         <History
                             transactions={this.state.transactions}
                         />
@@ -55,6 +79,7 @@ class App extends React.Component {
                             addTransaction={this.addTransaction}
                             description={this.state.description}
                             amount={this.state.amount}
+                            getTotalBalance={this.getTotalBalance}
                         />
                     </div>
                 </main>
