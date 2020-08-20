@@ -52,7 +52,7 @@ class App extends React.Component {
 
 
     render() {
-        const total = this.getTotalBalance()
+        const total = this.getTotalBalance();
 
         return (
             <React.Fragment>
@@ -64,16 +64,9 @@ class App extends React.Component {
                 <main>
                     <div className="container">
                         <Total
-<<<<<<< HEAD
-                            TotalBalance = {this.TotalBalance}
-                            resultIncome = {this.state.resultIncome}
-                            resultExpenses = {this.state.resultExpenses}
-=======
-                            balance={this.state.balance}
                             totalBalance = {total.totalBalance}
                             resultIncome = {total.resultIncome}
                             resultExpenses = {total.resultExpenses}
->>>>>>> refs/remotes/origin/master
                         />
                         <History
                             transactions={this.state.transactions}

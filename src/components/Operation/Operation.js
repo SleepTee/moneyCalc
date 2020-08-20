@@ -30,7 +30,7 @@ const Operation = ({addDescription , addAmount , addTransaction , description , 
                 <button
                     type="button"
                     className="operation__btn operation__btn-add"
-                    onClick={() => {addTransaction(true);  getTotalBalance();} }
+                    onClick={() =>addTransaction(true) }
                 >ДОХОД</button>
             </div>
 
