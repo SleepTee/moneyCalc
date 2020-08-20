@@ -65,7 +65,6 @@ class App extends React.Component {
                 <main>
                     <div className="container">
                         <Total
-                            balance={this.state.balance}
                             TotalBalance = {this.TotalBalance}
                             resultIncome = {this.state.resultIncome}
                             resultExpenses = {this.state.resultExpenses}
