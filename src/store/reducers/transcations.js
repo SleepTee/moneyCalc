@@ -52,39 +52,22 @@ const transactions = (state = initialState, action) => {
       return trans;
 
     case "DELETE_TRANSACTION":
-      const del = { ...state, balance: { ...state.balance } };
-      del.transactions.splice(action.index, 1);
-      const geIncome = () =>
-        del.transactions.reduce(
-          (acc, item) => (item.add ? Number.parseInt(item.amount) + acc : acc),
-          0
-        );
-      const geExpenses = () =>
-        del.transactions.reduce(
-          (acc, item) => (!item.add ? Number.parseInt(item.amount) + acc : acc),
-          0
-        );
-      const eTotalBalance = () => {
-        const resultIncome = geIncome();
-        const resultExpenses = geExpenses();
+      const tt = state.transactions.find((x) => x.id === action.index);
+      const delIncome = tt.add
+        ? state.balance.income - Number.parseInt(tt.amount)
+        : state.balance.income;
+      const delExpanse = !tt.add
+        ? state.balance.expense - Number.parseInt(tt.amount)
+        : state.balance.expense;
 
-        const totalBalance = resultIncome - resultExpenses;
-
-        return {
-          resultIncome,
-          resultExpenses,
-          totalBalance,
-        };
+      return {
+        transactions: state.transactions.filter((x) => x.id !== action.index),
+        balance: {
+          income: delIncome,
+          expense: delExpanse,
+          total: delIncome - delExpanse,
+        },
       };
-      const otal = eTotalBalance();
-      const ncome = otal.resultIncome;
-      const xpense = otal.resultExpenses;
-      const otalBalance = otal.totalBalance;
-
-      del.balance.expense = xpense;
-      del.balance.income = ncome;
-      del.balance.total = otalBalance;
-      return del;
     default:
       return state;
   }

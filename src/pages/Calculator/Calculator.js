@@ -22,30 +22,6 @@ class Calculator extends React.Component {
   addAmount = (e) => {
     this.setState({ amount: e.target.value });
   };
-  /*getIncome = () =>
-    this.props.transactions.reduce(
-      (acc, item) => (item.add ? Number.parseInt(item.amount) + acc : acc),
-      0
-    );
-  getExpenses = () =>
-    this.props.transactions.reduce(
-      (acc, item) => (!item.add ? Number.parseInt(item.amount) + acc : acc),
-      0
-    );
-
-  getTotalBalance = () => {
-    const resultIncome = this.getIncome();
-    const resultExpenses = this.getExpenses();
-
-    const totalBalance = resultIncome - resultExpenses;
-
-    return {
-      resultExpenses,
-      resultIncome,
-      totalBalance,
-    };
-  };*/
-
   render() {
     console.log(this.props);
     const total = this.props.balance;
